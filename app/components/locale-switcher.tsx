@@ -1,6 +1,6 @@
 "use client";
 
-import { i18n } from "@/i18n/config";
+import { fallbackLng, languages } from "@/i18n/config";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -10,16 +10,16 @@ export default function LocaleSwitcher() {
   const redirectedPathName = (locale: string) => {
     if (!pathName) return "/";
 
-    const pathnameIsMissingLocale = i18n.locales.every(
+    const pathnameIsMissingLocale = languages.every(
       (locale) =>
         !pathName.startsWith(`/${locale}/`) && pathName !== `/${locale}`
     );
 
     if (pathnameIsMissingLocale) {
-      if (locale === i18n.defaultLocale) return pathName;
+      if (locale === fallbackLng) return pathName;
       return `/${locale}${pathName}`;
     } else {
-      if (locale === i18n.defaultLocale) {
+      if (locale === fallbackLng) {
         const segments = pathName.split("/");
         const isHome = segments.length === 2;
         if (isHome) return "/";
@@ -36,7 +36,7 @@ export default function LocaleSwitcher() {
 
   return (
     <ul className="flex gap-x-3">
-      {i18n.locales.map((locale) => {
+      {languages.map((locale) => {
         return (
           <li key={locale}>
             <Link

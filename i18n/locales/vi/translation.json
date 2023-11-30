@@ -1,0 +1,6 @@
+{
+  "title": "Chao xìn",
+  "description": "Chào mừng bạn đến với trang web của tôi!",
+  "counter": "Đếm ngược",
+  "counter_with_parameter": "Đếm ngược: {{counter}}"
+}
