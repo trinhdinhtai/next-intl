@@ -1,8 +1,10 @@
-import { getI18n, getScopedI18n } from "@/i18n/server";
+"use client";
 
-export default async function LocalePage() {
-  const t = await getI18n();
-  const t2 = await getScopedI18n("scope.more");
+import { useI18n, useScopedI18n } from "@/i18n/client";
+
+export default function ClientPage() {
+  const t = useI18n();
+  const t2 = useScopedI18n("scope.more");
 
   return (
     <div className="mx-auto container py-8 space-y-4">

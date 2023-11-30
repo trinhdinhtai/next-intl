@@ -1,6 +1,0 @@
-{
-  "title": "Hello World",
-  "description": "A simple example of a Hello World app",
-  "counter": "Counter",
-  "counter_with_parameter": "A simple example of: {{counter}}"
-}
