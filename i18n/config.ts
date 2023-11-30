@@ -1,6 +1,19 @@
-export const i18n = {
-  defaultLocale: "en",
-  locales: ["en", "vi"],
-} as const;
+export const fallbackLng = "en";
+export const languages = [fallbackLng, "vi"];
+export const defaultNS = "translation";
+export const cookieName = "i18next";
+export type Locale = (typeof languages)[number];
 
-export type Locale = (typeof i18n)["locales"][number];
+export function getOptions(
+  lng = fallbackLng,
+  ns: string | string[] = defaultNS
+) {
+  return {
+    supportedLngs: languages,
+    fallbackLng,
+    lng,
+    fallbackNS: defaultNS,
+    defaultNS,
+    ns,
+  };
+}
